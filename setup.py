@@ -1,22 +1,20 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
 
-import codecs
 import io
+from pathlib import Path
 
 from setuptools import setup, find_packages
 
 import umap
-
-long_description = codecs.open('README.md', "r", "utf-8").read()
 
 
 def is_pkg(line):
     return line and not line.startswith(('--', 'git', '#'))
 
 
+
 def reqs_to_list(filename):
-    with io.open('requirements.txt', encoding='utf-8') as reqs:
+    with io.open(filename, encoding='utf-8') as reqs:
         return [l for l in reqs.read().split('\n') if is_pkg(l)]
 
 
@@ -26,24 +24,30 @@ setup(
     author=umap.__author__,
     author_email=umap.__contact__,
     description=umap.__doc__,
-    keywords="django leaflet geodjango openstreetmap",
+    keywords="django leaflet geodjango openstreetmap map",
     url=umap.__homepage__,
     packages=find_packages(),
     include_package_data=True,
     platforms=["any"],
     zip_safe=True,
-    long_description=long_description,
+    long_description=Path('README.md').read_text(),
+    long_description_content_type='text/markdown',
     install_requires=reqs_to_list('requirements.txt'),
     extras_require={
         'dev': reqs_to_list('requirements-dev.txt'),
         'docker': reqs_to_list('requirements-docker.txt'),
     },
     classifiers=[
-        "Development Status :: 3 - Alpha",
+        "Development Status :: 4 - Beta",
         "Intended Audience :: Developers",
         "Operating System :: OS Independent",
         "Topic :: Software Development :: Libraries :: Python Modules",
         "Programming Language :: Python",
+        "Programming Language :: Python :: 3 :: Only",
+        "Programming Language :: Python :: 3.4",
+        "Programming Language :: Python :: 3.5",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
     ],
     entry_points={
         'console_scripts': ['umap=umap.bin:main'],

@@ -5,6 +5,8 @@ docs/_build
 umap/remote_static
 .idea
 tmp/*
+node_modules/*
+umap/static/umap/vendors
 /static/
 .bash_history
 .python_history
@@ -56,6 +58,7 @@ nosetests.xml
 coverage.xml
 *,cover
 .hypothesis/
+.pytest_cache/
 
 # Translations
 *.mo
