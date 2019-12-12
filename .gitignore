@@ -10,6 +10,7 @@ umap/static/umap/vendors
 /static/
 .bash_history
 .python_history
+uploads/*
 
 ### Python ###
 # Byte-compiled / optimized / DLL files

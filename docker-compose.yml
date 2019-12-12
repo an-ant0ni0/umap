@@ -12,7 +12,7 @@ services:
       - SECRET_KEY=some-long-and-weirdly-unrandom-secret-key
       - ALLOWED_HOSTS=*
       - SITE_URL=http://localhost:8000/
-      - LEAFLET_STORAGE_ALLOW_ANONYMOUS=True
+      - UMAP_ALLOW_ANONYMOUS=True
     volumes:
       - $PWD:/srv/umap
     ports:
@@ -20,3 +20,4 @@ services:
     links:
       - db
       - redis
+    user: 1001:1001

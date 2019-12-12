@@ -1,10 +1,12 @@
 # -*- coding:utf-8 -*-
+
 """
 Settings for Docker development
 
 Use this file as a base for your local development settings and copy
 it to umap/settings/local.py. It should not be checked into
 your code repository.
+
 """
 import environ
 from umap.settings.base import *   # pylint: disable=W0614,W0401
@@ -68,7 +70,7 @@ AUTHENTICATION_BACKENDS += (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-MIDDLEWARE_CLASSES += (
+MIDDLEWARE += (
     'social_django.middleware.SocialAuthExceptionMiddleware',
 )
 
@@ -83,8 +85,8 @@ SOCIAL_AUTH_BACKEND_ERROR_URL = "/"
 UMAP_DEMO_SITE = False
 
 # Whether to allow non authenticated people to create maps.
-LEAFLET_STORAGE_ALLOW_ANONYMOUS = env.bool(
-    'LEAFLET_STORAGE_ALLOW_ANONYMOUS',
+UMAP_ALLOW_ANONYMOUS = env.bool(
+    'UMAP_ALLOW_ANONYMOUS',
     default=False,
 )
 
@@ -122,7 +124,7 @@ LEAFLET_LATITUDE = env.int('LEAFLET_LATITUDE', default=51)
 LEAFLET_ZOOM = env.int('LEAFLET_ZOOM', default=6)
 
 # Number of old version to keep per datalayer.
-LEAFLET_STORAGE_KEEP_VERSIONS = env.int(
-    'LEAFLET_STORAGE_KEEP_VERSIONS',
+UMAP_KEEP_VERSIONS = env.int(
+    'UMAP_KEEP_VERSIONS',
     default=10,
 )
